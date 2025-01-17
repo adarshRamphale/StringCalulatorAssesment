@@ -1,5 +1,7 @@
 package com.stringCalculatorAssesment;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -27,15 +29,22 @@ public class StringCalculatorAssesment {
 
         int sum = 0;
         String[] numArray = numbers.split(delimiter);
+        List<Integer> negatives = new ArrayList<>();
         for (String num : numArray) {
             if (!num.isEmpty()) {
                 int number = Integer.parseInt(num);
                 if(number < 0){
-                    throw new IllegalArgumentException("Negative numbers are not allowed");
+                    negatives.add(number);
                 }
-                sum += number;
+                else if (number <= 1000) {
+                    sum += number;
+                }
             }
         }
+        if (!negatives.isEmpty()) {
+            throw new IllegalArgumentException("Negatives not allowed: " + negatives);
+        }
+
         return sum;
     }
 
