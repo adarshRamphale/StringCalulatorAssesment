@@ -23,4 +23,9 @@ class StringCalculatorAssesmentTest {
     void add_forMultipleNumbers(){
         assertEquals(6,calculator.add("1,5"));
     }
+
+    @Test
+    void add_forHandleAnyNumbers(){
+        assertEquals(100,calculator.add("10,10,10,10,10,50"));
+    }
 }
