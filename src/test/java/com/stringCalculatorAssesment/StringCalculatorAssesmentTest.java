@@ -36,6 +36,6 @@ class StringCalculatorAssesmentTest {
 
     @Test
     void add_forDelimiterFormat(){
-        assertEquals(6,calculator.add("//;\n1;2"));
+        assertEquals(3,calculator.add("//;\n1;2"));
     }
 }
