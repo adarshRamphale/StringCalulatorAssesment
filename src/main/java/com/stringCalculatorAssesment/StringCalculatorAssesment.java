@@ -6,6 +6,15 @@ public class StringCalculatorAssesment {
         if(numbers.isEmpty()){
             return 0;
         }
-        return -1;
+        String delimiter = ",|\n";
+        int sum = 0;
+        String[] numArray = numbers.split(delimiter);
+        for (String num : numArray) {
+            if (!num.isEmpty()) {
+                int number = Integer.parseInt(num);
+                sum += number;
+            }
+        }
+        return sum;
     }
 }
