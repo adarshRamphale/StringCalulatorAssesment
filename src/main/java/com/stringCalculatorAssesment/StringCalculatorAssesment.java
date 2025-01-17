@@ -6,15 +6,18 @@ import java.util.regex.Pattern;
 public class StringCalculatorAssesment {
 
     private static final String DEFAULT_DELIMITER = ",|\n";
+    private static final Pattern CUSTOM_DELIMITER_PATTERN = Pattern.compile("//(\\[.*?])+\\n");
+    private int callCount = 0;
 
     public int add(String numbers) {
+        callCount++;
         if(numbers.isEmpty()){
             return 0;
         }
 
         String delimiter = DEFAULT_DELIMITER;
         if (numbers.startsWith("//")) {
-            Matcher matcher = Pattern.compile("//(\\[.*?\\]|.)\n").matcher(numbers);
+            Matcher matcher = Pattern.compile(String.valueOf(CUSTOM_DELIMITER_PATTERN)).matcher(numbers);
             if (matcher.find()) {
                 String customDelimiter = matcher.group(1);
                 delimiter = Pattern.quote(customDelimiter);
@@ -34,5 +37,9 @@ public class StringCalculatorAssesment {
             }
         }
         return sum;
+    }
+
+    public int getCalledCount() {
+        return callCount;
     }
 }

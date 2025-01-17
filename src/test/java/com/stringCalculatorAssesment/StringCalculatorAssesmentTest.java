@@ -46,4 +46,12 @@ class StringCalculatorAssesmentTest {
         });
         assertEquals("Negative numbers are not allowed",exception.getMessage());
     }
+
+    @Test
+    void getCalledCount_ReturnsCorrectCount() {
+        calculator.add("1,2");
+        calculator.add("3,4");
+        calculator.add("5,6");
+        assertEquals(2, calculator.getCalledCount());
+    }
 }
