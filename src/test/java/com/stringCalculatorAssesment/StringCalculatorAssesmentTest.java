@@ -14,4 +14,8 @@ class StringCalculatorAssesmentTest {
         assertEquals(0,calculator.add(""));
     }
 
+    @Test
+    void add_forSingleNumber(){
+        assertEquals(1,calculator.add("1"));
+    }
 }
