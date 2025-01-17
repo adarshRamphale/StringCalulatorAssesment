@@ -33,4 +33,9 @@ class StringCalculatorAssesmentTest {
     void add_forNewNumbersLineFormat(){
         assertEquals(6,calculator.add("1\n2,3"));
     }
+
+    @Test
+    void add_forDelimiterFormat(){
+        assertEquals(6,calculator.add("//;\n1;2"));
+    }
 }
