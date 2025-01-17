@@ -53,4 +53,9 @@ class StringCalculatorAssesmentTest {
         calculator.add("3,4");
         assertEquals(2, calculator.getCalledCount());
     }
+
+    @Test
+    void add_NumbersGreaterThan1000_AreIgnored() {
+        assertEquals(2, calculator.add("2,1001"));
+    }
 }
